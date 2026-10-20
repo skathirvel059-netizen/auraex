@@ -1,0 +1,224 @@
+/* ===================================================================
+   AURAEX - BASE STYLES, RESETS & ANIMATIONS
+   =================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 20px);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-muted);
+}
+
+::selection {
+  background: var(--cyan-primary);
+  color: var(--bg-black);
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Utility Gradients & Text Glow */
+.text-gradient-cyan {
+  background: var(--grad-cyan-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: var(--grad-violet-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-cyan { color: var(--cyan-primary); }
+.text-violet { color: var(--violet-primary); }
+.text-gold { color: var(--gold-primary); }
+.text-muted { color: var(--text-muted); }
+
+/* Badges & Section Eyebrows */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: var(--radius-full);
+  color: var(--cyan-bright);
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  width: fit-content;
+}
+
+.eyebrow.violet {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.25);
+  color: var(--violet-bright);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.1);
+}
+
+.eyebrow.gold {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.25);
+  color: var(--gold-bright);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
+}
+
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+/* Background Atmospheric Glows */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+.glow-cyan {
+  background: radial-gradient(circle, var(--cyan-primary) 0%, transparent 70%);
+}
+
+.glow-violet {
+  background: radial-gradient(circle, var(--violet-primary) 0%, transparent 70%);
+}
+
+.glow-gold {
+  background: radial-gradient(circle, var(--gold-primary) 0%, transparent 70%);
+}
+
+/* Keyframe Animations */
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.4); opacity: 1; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(0, 240, 255, 0.3); }
+  50% { border-color: rgba(139, 92, 246, 0.6); }
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

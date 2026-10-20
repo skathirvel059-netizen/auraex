@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auraex — Digital Engineering, IoT Solutions & Global Trade</title>
+  <meta name="description" content="Auraex unites bespoke web and mobile development, edge IoT hardware engineering, and international import/export logistics into one seamless, forward-looking enterprise.">
+  <meta name="keywords" content="web development, mobile app creation, IoT engineering, import export, international trade, edge telemetry">
+  <meta name="theme-color" content="#05070a">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Auraex — Digital Systems, Connected IoT & Global Trade">
+  <meta property="og:description" content="Engineering the next era of digital platforms, connected hardware, and sovereign supply chains.">
+
+  <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Identity Services (GIS) for Google Sign-In -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/sections.css">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f0ff'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='20,2 36,11 36,29 20,38 4,29 4,11' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%2300f0ff'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ===================================================================
+       FIRST SCREEN: WELCOMING SIGN-IN & ONBOARDING PORTAL
+       =================================================================== -->
+  <div id="auth-view" class="auth-view-wrapper" aria-label="Auraex Authentication Screen">
+    <div class="ambient-glow glow-cyan auth-ambient-1"></div>
+    <div class="ambient-glow glow-violet auth-ambient-2"></div>
+
+    <div class="auth-container">
+      <!-- Left Column: Brand Showcase -->
+      <div class="auth-brand-col">
+        <div class="auth-brand-header">
+          <div class="auth-logo-badge">
+            <div class="brand-emblem">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polygon points="20,3 36,12 36,28 20,37 4,28 4,12" stroke="url(#auth-grad-1)" stroke-width="2.5" />
+                <circle cx="20" cy="20" r="6" fill="url(#auth-grad-2)" />
+                <path d="M20 3 L20 14 M36 12 L26 17 M36 28 L26 23 M20 37 L20 26 M4 28 L14 23 M4 12 L14 17" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.2" />
+                <defs>
+                  <linearGradient id="auth-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f0ff" />
+                    <stop offset="100%" stop-color="#8b5cf6" />
+                  </linearGradient>
+                  <linearGradient id="auth-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38f4ff" />
+                    <stop offset="100%" stop-color="#a78bfa" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="brand-name" style="font-size: 1.4rem;">Auraex</span>
+          </div>
+
+          <h2 class="auth-brand-title">Engineering the Synergy of Bits, Atoms & Trade.</h2>
+          <p class="auth-brand-desc">
+            A unified multi-disciplinary enterprise uniting high-performance software, edge IoT engineering, and sovereign cross-border trade.
+          </p>
+        </div>
+
+        <div class="auth-disciplines-list">
+          <div class="auth-discipline-item">
+            <span class="auth-discipline-icon">⚡</span>
+            <span>Web Creation & Next-Gen Platforms</span>
+          </div>
+          <div class="auth-discipline-item">
+            <span class="auth-discipline-icon">📱</span>
+            <span>Mobile Applications & Cloud Systems</span>
+          </div>
+          <div class="auth-discipline-item">
+            <span class="auth-discipline-icon">📡</span>
+            <span>Connected Hardware & IoT Telemetry</span>
+          </div>
+          <div class="auth-discipline-item">
+            <span class="auth-discipline-icon">🌐</span>
+            <span>International Trade, Sourcing & Logistics</span>
+          </div>
+        </div>
+
+        <div class="auth-brand-footer">
+          <span class="system-status-indicator">
+            <span class="account-dot"></span> Auraex Systems v2.4 Nominal
+          </span>
+          <span>Tokyo • SF • London</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Form -->
+      <div class="auth-form-col">
+        <div class="auth-form-header">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Secure Gateway</div>
+          <h3 id="auth-form-title">Welcome Back</h3>
+          <p id="auth-form-subtitle" class="text-muted" style="font-size: 0.9rem; margin-top: 4px;">
+            Enter your credentials to access your Auraex systems workspace.
+          </p>
+        </div>
+
+        <!-- Active Session Banner (visible when a user is signed in) -->
+        <div class="active-session-banner" id="active-session-banner" style="display: none;">
+          <div class="active-session-info">
+            <div class="active-session-avatar" id="active-session-avatar">👤</div>
+            <div style="flex: 1; min-width: 0;">
+              <div class="active-session-name" id="active-session-name">Signed In</div>
+              <div class="active-session-email text-muted" id="active-session-email">email@domain.com</div>
+            </div>
+          </div>
+          <div class="active-session-actions">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-session-enter" style="flex: 1;">
+              Enter Workspace →
+            </button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-session-logout" style="flex: 1; color: #ff5b79; border: 1px solid rgba(255, 91, 121, 0.3);">
+              Sign Out &amp; Switch
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode Tabs -->
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab-btn active" data-mode="signin" role="tab" id="tab-signin">Sign In</button>
+          <button class="auth-tab-btn" data-mode="signup" role="tab" id="tab-signup">Create Account</button>
+        </div>
+
+        <!-- Google OAuth Button -->
+        <div id="google-btn-container" class="google-btn-container" style="display: flex; justify-content: center; width: 100%; min-height: 44px; margin-bottom: 2px;"></div>
+        <button type="button" class="btn-google" id="btn-google-auth" style="display: none;">
+          <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+
+
+        <div class="auth-divider">or enter email</div>
+
+        <!-- Sign-In / Sign-Up Form -->
+        <form class="auth-form" id="auth-form" novalidate>
+          <div class="form-group" id="auth-name-group" style="display: none;">
+            <label class="form-label" for="auth-name">Full Name / Organization</label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input type="text" id="auth-name" class="form-input input-with-icon" placeholder="e.g. Elena Rostova" />
+            </div>
+            <span class="form-error-msg"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="auth-email">Email Address</label>
+            <div class="input-wrapper">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="auth-email" class="form-input input-with-icon" placeholder="name@company.com" required autocomplete="email" />
+            </div>
+            <span class="form-error-msg"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label">
+              <label for="auth-password">Password</label>
+              <a href="#" class="auth-forgot-link" id="auth-forgot-link">Forgot password?</a>
+            </div>
+            <div class="input-wrapper">
+              <span class="input-icon">🔑</span>
+              <input type="password" id="auth-password" class="form-input input-with-icon" placeholder="••••••••••••" required autocomplete="current-password" />
+              <button type="button" class="input-toggle-btn" id="toggle-password-btn" aria-label="Toggle password visibility">👁️</button>
+            </div>
+            <span class="form-error-msg"></span>
+          </div>
+
+          <div class="auth-actions-row">
+            <label class="auth-remember-me">
+              <input type="checkbox" id="auth-remember" checked />
+              <span>Remember session</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary auth-submit-btn" id="auth-submit-btn">
+            Sign In to Auraex
+          </button>
+
+          <!-- Prototype Mode Notice Banner -->
+          <div class="auth-prototype-notice">
+            <span class="auth-notice-icon">ℹ️</span>
+            <div>
+              <strong>Frontend Prototype Mode:</strong> Google OAuth 2.0 & backend provider hooks can be connected in <code>/js/auth-config.js</code>. Submissions simulate live authentication without backend lockouts.
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-ghost auth-guest-btn" id="btn-guest-access">
+            Explore Auraex Directly as Guest →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="forgot-modal" id="forgot-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="forgot-modal-card">
+      <button class="modal-close-btn" id="forgot-modal-close" aria-label="Close dialog">&times;</button>
+      <div class="eyebrow gold"><span class="eyebrow-dot"></span> Account Recovery</div>
+      <h3 id="modal-title" style="margin-bottom: 8px;">Reset Password</h3>
+      <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 20px;">
+        Enter your registered email address. In prototype mode, a simulated reset dispatch will be triggered.
+      </p>
+      <form id="forgot-form">
+        <div class="form-group">
+          <label class="form-label" for="forgot-email">Account Email</label>
+          <input type="email" id="forgot-email" class="form-input" placeholder="name@company.com" required />
+        </div>
+        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 16px;">
+          Send Reset Instructions
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Google Sign-In & Client ID Modal -->
+  <div class="forgot-modal" id="google-auth-modal" role="dialog" aria-modal="true" aria-labelledby="google-modal-title">
+    <div class="forgot-modal-card">
+      <button class="modal-close-btn" id="google-modal-close" aria-label="Close dialog">&times;</button>
+      <div class="eyebrow cyan"><span class="eyebrow-dot"></span> Google Authentication</div>
+      <h3 id="google-modal-title" style="margin-bottom: 8px; font-size: 1.35rem;">Sign in with Google</h3>
+      <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 18px; line-height: 1.5;">
+        Enter your Google account details to sign in, or connect your Google Cloud OAuth Client ID for live one-tap authentication.
+      </p>
+
+      <form id="google-auth-form">
+        <div class="form-group">
+          <label class="form-label" for="google-input-email">Google Email Address</label>
+          <div class="input-wrapper">
+            <span class="input-icon">✉️</span>
+            <input type="email" id="google-input-email" class="form-input input-with-icon" placeholder="your.name@gmail.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 14px;">
+          <label class="form-label" for="google-input-name">Account Display Name (Optional)</label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="text" id="google-input-name" class="form-input input-with-icon" placeholder="e.g. Jordan Alex" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 18px;" id="btn-confirm-google-email">
+          Continue with this Google Account →
+        </button>
+      </form>
+
+      <details class="google-client-id-details" style="margin-top: 20px; font-size: 0.8rem; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+        <summary style="cursor: pointer; color: var(--cyan-primary); font-weight: 500;">
+          ⚙️ Connect Real Google Cloud OAuth 2.0 Client ID
+        </summary>
+        <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <p class="text-muted" style="font-size: 0.775rem; line-height: 1.5; margin: 0;">
+            Paste your Web Client ID from Google Cloud Console (Authorized Origin: <code>http://localhost:5173</code>):
+          </p>
+          <input type="text" id="google-custom-client-id" class="form-input" placeholder="e.g. 123456789-xyz.apps.googleusercontent.com" style="font-size: 0.8rem;" />
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-save-google-client-id">
+              Save &amp; Launch GIS
+            </button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-clear-google-client-id" style="color: var(--text-muted);">
+              Reset Default
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <details class="google-client-id-details" style="margin-top: 14px; font-size: 0.8rem; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+        <summary style="cursor: pointer; color: #3ecf8e; font-weight: 500;">
+          ⚡ Connect Supabase (PostgreSQL &amp; Auth)
+        </summary>
+        <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <p class="text-muted" style="font-size: 0.775rem; line-height: 1.5; margin: 0;">
+            Enter your Supabase credentials from <strong>Project Settings &gt; API</strong>:
+          </p>
+          <input type="text" id="supabase-url-input" class="form-input" placeholder="https://your-project.supabase.co" style="font-size: 0.8rem;" />
+          <input type="password" id="supabase-key-input" class="form-input" placeholder="anon public key (ey...)" style="font-size: 0.8rem;" />
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-save-supabase">
+              Connect Supabase
+            </button>
+            <button type="button" class="btn btn-ghost btn-sm" id="btn-clear-supabase" style="color: var(--text-muted);">
+              Reset Supabase
+            </button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       STICKY TOP NAVIGATION BAR
+       =================================================================== -->
+  <header class="site-nav" id="site-nav">
+    <div class="container container-wide nav-inner">
+      <a href="#hero" class="brand-logo" aria-label="Auraex Home">
+        <div class="brand-emblem">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="20,3 36,12 36,28 20,37 4,28 4,12" stroke="url(#nav-grad)" stroke-width="2.5" />
+            <circle cx="20" cy="20" r="5" fill="#00f0ff" />
+            <defs>
+              <linearGradient id="nav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">Auraex</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#web" class="nav-link">Web</a>
+        <a href="#apps" class="nav-link">Apps</a>
+        <a href="#iot" class="nav-link">IoT Solutions</a>
+        <a href="#trade" class="nav-link">Import/Export</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#industries" class="nav-link">Industries</a>
+        <a href="#why-auraex" class="nav-link">Why Auraex</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Account & CTA Controls -->
+      <div class="nav-actions">
+        <!-- Account Switcher / Sign-In Button -->
+        <div class="nav-account-container" id="nav-account-container">
+          <button class="account-pill" id="nav-account-pill" title="Click to view account status or switch">
+            <span class="account-dot"></span>
+            <span id="nav-account-text">Sign In / Switch</span>
+          </button>
+          <button class="btn btn-ghost btn-sm nav-signout-btn" id="nav-signout-btn" title="Sign out of current account" style="display: none;">
+            Sign Out
+          </button>
+        </div>
+
+        <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation Drawer">
+    <div class="brand-logo" style="margin-bottom: 20px;">
+      <span class="brand-name">Auraex</span>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="#hero" class="mobile-nav-link">Home <span>→</span></a>
+      <a href="#about" class="mobile-nav-link">About Auraex <span>→</span></a>
+      <a href="#web" class="mobile-nav-link">Web Creation <span>→</span></a>
+      <a href="#apps" class="mobile-nav-link">App Creation <span>→</span></a>
+      <a href="#iot" class="mobile-nav-link">IoT Solutions <span>→</span></a>
+      <a href="#trade" class="mobile-nav-link">Import & Export <span>→</span></a>
+      <a href="#process" class="mobile-nav-link">Our Process <span>→</span></a>
+      <a href="#work" class="mobile-nav-link">Featured Work <span>→</span></a>
+      <a href="#industries" class="mobile-nav-link">Industries <span>→</span></a>
+      <a href="#why-auraex" class="mobile-nav-link">Why Auraex <span>→</span></a>
+      <a href="#testimonials" class="mobile-nav-link">Testimonials <span>→</span></a>
+      <a href="#faq" class="mobile-nav-link">FAQ <span>→</span></a>
+      <a href="#contact" class="mobile-nav-link">Contact <span>→</span></a>
+    </div>
+
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+      <button class="btn btn-secondary" id="mobile-account-btn" style="width: 100%;">
+        🔑 Sign In / Switch Account
+      </button>
+      <button class="btn btn-ghost" id="mobile-signout-btn" style="width: 100%; display: none; color: #ff5b79; border: 1px solid rgba(255, 91, 121, 0.3);">
+        🚪 Sign Out
+      </button>
+      <a href="#contact" class="btn btn-primary" style="width: 100%;">Get in Touch</a>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       MAIN SITE CONTENT (14 FULL-SCREEN / SHOWCASE SECTIONS)
+       =================================================================== -->
+  <main id="main-site">
+
+    <!-- ---------------------------------------------------------------
+         SECTION 1: HERO
+         --------------------------------------------------------------- -->
+    <section id="hero" class="hero-section" aria-label="Hero Section">
+      <canvas id="hero-canvas" class="hero-canvas"></canvas>
+      <div class="ambient-glow glow-cyan" style="top: 10%; left: 20%; width: 500px; height: 500px;"></div>
+      <div class="ambient-glow glow-violet" style="top: 25%; right: 15%; width: 550px; height: 550px;"></div>
+
+      <div class="container hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span> Next-Generation Multi-Disciplinary Enterprise
+        </div>
+
+        <h1 class="hero-title">
+          Engineering the Next Era of <br>
+          <span class="text-gradient-cyan">Digital Systems</span>, 
+          <span class="text-gradient-gold">Connected IoT</span> &amp; 
+          Global Trade.
+        </h1>
+
+        <p class="hero-subtitle">
+          Auraex bridges software architecture, precision mobile applications, edge IoT hardware engineering, and international import/export supply chains into one cohesive force.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#web" class="btn btn-primary btn-lg">Explore Capabilities</a>
+          <a href="#contact" class="btn btn-secondary btn-lg">Schedule Technical Briefing</a>
+        </div>
+
+        <!-- Real-Time Operating Metrics Bar -->
+        <div class="hero-metrics-bar">
+          <div class="hero-metric-item">
+            <span class="metric-val text-gradient-cyan">4</span>
+            <span class="metric-label">Integrated Disciplines</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-val text-gradient-cyan">99.98%</span>
+            <span class="metric-label">IoT Telemetry Uptime</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-val text-gradient-gold">42+</span>
+            <span class="metric-label">Global Trade Corridors</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="metric-val text-gradient-cyan">&lt; 35ms</span>
+            <span class="metric-label">Edge Network Latency</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 2: ABOUT AURAEX
+         --------------------------------------------------------------- -->
+    <section id="about" class="section section-fullscreen" aria-label="About Auraex">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow violet"><span class="eyebrow-dot"></span> About Auraex</div>
+          <h2 class="section-title">Bridging the Chasm Between Code, Silicon &amp; Global Borders.</h2>
+          <p class="section-subtitle">
+            Most organizations treat software development, physical hardware manufacturing, and international trade as separate silos. Auraex was founded on a singular premise: the future belongs to companies that seamlessly unify all three.
+          </p>
+        </div>
+
+        <div class="about-pillars">
+          <!-- Pillar 1 -->
+          <div class="about-card">
+            <div class="about-card-num">01 / DIGITAL FOUNDATION</div>
+            <h3>Sovereign Software Craftsmanship</h3>
+            <p>
+              We architect resilient, scalable web ecosystems and mobile applications tailored for high throughput, zero downtime, and intuitive digital interactions.
+            </p>
+            <div class="about-checklist">
+              <div class="about-check-item"><span class="about-check-icon">✓</span> Micro-frontend architectures</div>
+              <div class="about-check-item"><span class="about-check-icon">✓</span> Enterprise-grade cloud security</div>
+              <div class="about-check-item"><span class="about-check-icon">✓</span> Sub-second global page loads</div>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="about-card violet">
+            <div class="about-card-num text-violet">02 / EMBEDDED INTELLIGENCE</div>
+            <h3>Edge IoT &amp; Hardware Engineering</h3>
+            <p>
+              From custom PCB schematics to low-power microcontroller firmware, we bring physical environments online with high-fidelity sensor telemetry and automation.
+            </p>
+            <div class="about-checklist">
+              <div class="about-check-item"><span class="about-check-icon text-violet">✓</span> Low-power LoRa &amp; BLE meshes</div>
+              <div class="about-check-item"><span class="about-check-icon text-violet">✓</span> Real-time sensor processing</div>
+              <div class="about-check-item"><span class="about-check-icon text-violet">✓</span> Secure OTA firmware updates</div>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="about-card gold">
+            <div class="about-card-num text-gold">03 / PHYSICAL COMMERCE</div>
+            <h3>Cross-Border Trade &amp; Logistics</h3>
+            <p>
+              We eliminate friction in international commerce. Our trade desk orchestrates precision sourcing, bonded customs clearance, and multi-modal container logistics.
+            </p>
+            <div class="about-checklist">
+              <div class="about-check-item"><span class="about-check-icon text-gold">✓</span> Verified supplier audits</div>
+              <div class="about-check-item"><span class="about-check-icon text-gold">✓</span> Automated tariff compliance</div>
+              <div class="about-check-item"><span class="about-check-icon text-gold">✓</span> Multimodal freight coordination</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 3: WEB CREATION
+         --------------------------------------------------------------- -->
+    <section id="web" class="section section-fullscreen" aria-label="Web Creation">
+      <div class="container">
+        <div class="showcase-split">
+          <!-- Text Details -->
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> Capability 01</div>
+            <h2>Web Creation &amp; High-Performance Digital Platforms</h2>
+            <p style="margin-top: 12px;">
+              We design and construct digital flagships that command authority. From bespoke corporate web experiences to complex transactional platforms and headless eCommerce, our engineering balances aesthetic distinction with raw execution speed.
+            </p>
+
+            <div class="web-feature-list">
+              <div class="web-feature-item">
+                <div class="web-feature-icon">⚡</div>
+                <div class="web-feature-info">
+                  <h4>Headless Web Architectures</h4>
+                  <p>Decoupled frontends built on modern standards, ensuring blistering load times and seamless third-party API orchestration.</p>
+                </div>
+              </div>
+
+              <div class="web-feature-item">
+                <div class="web-feature-icon">💎</div>
+                <div class="web-feature-info">
+                  <h4>Distinctive Design Systems</h4>
+                  <p>Harmonious color palettes, typography scales, glassmorphism, and accessible components tailored uniquely for your brand identity.</p>
+                </div>
+              </div>
+
+              <div class="web-feature-item">
+                <div class="web-feature-icon">🛡️</div>
+                <div class="web-feature-info">
+                  <h4>Enterprise Security &amp; Compliance</h4>
+                  <p>Built-in CSRF prevention, strict CSP headers, automated vulnerability scanning, and ISO 27001-aligned workflows.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-outline">Initiate Web Project →</a>
+          </div>
+
+          <!-- Simulated Live Code & Architecture Inspector -->
+          <div class="code-inspector-card">
+            <div class="inspector-header">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="inspector-tabs">
+                <button class="inspector-tab active" data-lang="react">PlatformCore.jsx</button>
+                <button class="inspector-tab" data-lang="graphql">Schema.gql</button>
+                <button class="inspector-tab" data-lang="architecture">Topology.spec</button>
+              </div>
+            </div>
+
+            <div class="inspector-body">
+              <pre class="code-snippet"><code id="inspector-code-content">// High-Performance Headless Web Platform
+import { useAuraexEngine } from '@auraex/core';
+
+export default function GlobalPortal() {
+  const { telemetry, latency } = useAuraexEngine({ edgeSync: true });
+  return (
+    &lt;PlatformLayout status={telemetry.status}&gt;
+      &lt;TelemetryStream p99={latency.p99} /&gt;
+    &lt;/PlatformLayout&gt;
+  );
+}</code></pre>
+
+              <div class="live-preview-box">
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Edge Node Benchmark</div>
+                  <div style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--cyan-bright); font-weight: 700;">100 / 100 Lighthouse Score</div>
+                </div>
+                <span class="badge badge-cyan">✓ HTTP/3 Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 4: APP CREATION
+         --------------------------------------------------------------- -->
+    <section id="apps" class="section section-fullscreen" aria-label="App Creation">
+      <div class="container">
+        <div class="showcase-split" style="grid-template-columns: 1.15fr 1fr;">
+          <!-- Interactive Phone Frame Mockup -->
+          <div class="phone-mockup-wrapper">
+            <div class="phone-device">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-app-header">
+                  <div>
+                    <div style="font-size: 0.65rem; color: var(--cyan-bright); text-transform: uppercase; font-weight: 700;">AURAEX OS MOBILE</div>
+                    <div id="phone-app-title" style="font-size: 0.95rem; font-weight: 700; color: #fff;">Global Fleet Telemetry</div>
+                  </div>
+                  <span class="badge badge-violet" style="font-size: 0.65rem;">LIVE</span>
+                </div>
+
+                <div class="phone-widget-card">
+                  <div id="phone-app-subtitle" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px;">Real-time transit tracker</div>
+                  <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                    <div id="phone-metric1-val" style="font-family: var(--font-display); font-size: 1.4rem; color: var(--violet-bright); font-weight: 800;">142 Vessels</div>
+                    <span id="phone-metric2-val" style="font-size: 0.75rem; color: #34d399;">99.98% On-Time</span>
+                  </div>
+                </div>
+
+                <div class="phone-widget-card" style="background: rgba(139, 92, 246, 0.08); border-color: rgba(139, 92, 246, 0.3);">
+                  <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 4px;">Hardware Link</div>
+                  <div style="font-size: 0.8rem; font-family: var(--font-mono); color: #fff;">Sensor Mesh: 0x9F412 [Encrypted]</div>
+                </div>
+
+                <div class="phone-widget-card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                  <div style="font-size: 1.6rem; margin-bottom: 8px;">📱 ⇄ 🛰️</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary);">Native Caching &amp; Offline Sync Active</div>
+                </div>
+
+                <!-- Interactive App Switcher Pills inside phone -->
+                <div class="phone-switch-nav">
+                  <button class="phone-pill-btn active" data-screen="fleet">Fleet</button>
+                  <button class="phone-pill-btn" data-screen="iot">IoT Mesh</button>
+                  <button class="phone-pill-btn" data-screen="customs">Customs</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Details -->
+          <div>
+            <div class="eyebrow violet"><span class="eyebrow-dot"></span> Capability 02</div>
+            <h2>App Creation: Native Precision &amp; Distributed Architecture</h2>
+            <p style="margin-top: 12px;">
+              From mission-critical operational tools to consumer-facing mobile products, Auraex engineers high-performance iOS, Android, and cross-platform applications built for unforgiving real-world conditions.
+            </p>
+
+            <div class="web-feature-list">
+              <div class="web-feature-item">
+                <div class="web-feature-icon" style="color: var(--violet-bright); background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);">🔄</div>
+                <div class="web-feature-info">
+                  <h4>Offline-First Synchronization</h4>
+                  <p>Applications that function flawlessly without internet connectivity, queuing state changes in SQLite/WatermelonDB and re-syncing over conflict-free CRDTs.</p>
+                </div>
+              </div>
+
+              <div class="web-feature-item">
+                <div class="web-feature-icon" style="color: var(--violet-bright); background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);">📡</div>
+                <div class="web-feature-info">
+                  <h4>Real-Time BLE &amp; Hardware Pairing</h4>
+                  <p>Direct low-latency Bluetooth Low Energy (BLE) and NFC interfaces connecting smartphones directly to industrial sensors and field equipment.</p>
+                </div>
+              </div>
+
+              <div class="web-feature-item">
+                <div class="web-feature-icon" style="color: var(--violet-bright); background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);">⚡</div>
+                <div class="web-feature-info">
+                  <h4>Fluid 120Hz Micro-Interactions</h4>
+                  <p>Native gestures, fluid spring physics, and haptic feedback engineered to delight users on every interaction.</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-secondary">Discuss Mobile Vision →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 5: IOT SOLUTIONS & LIVE TELEMETRY SIMULATOR
+         --------------------------------------------------------------- -->
+    <section id="iot" class="section section-fullscreen" aria-label="IoT Solutions">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Capability 03</div>
+          <h2 class="section-title">Connected Devices, Automation &amp; Edge Telemetry</h2>
+          <p class="section-subtitle">
+            Auraex breathes life into silicon. We design custom micro-sensor arrays, edge gateways, and cloud dashboards that convert physical phenomena into real-time operational foresight.
+          </p>
+        </div>
+
+        <!-- Interactive IoT Telemetry Simulator Widget -->
+        <div class="iot-dashboard-container">
+          <div class="iot-dash-header">
+            <div class="iot-status-cluster">
+              <span id="iot-status-badge" class="badge badge-emerald">ONLINE • 100% NOMINAL</span>
+              <span class="badge">Auraex Mesh Hub: #AX-902-TOKYO</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <button class="btn btn-secondary btn-sm" id="btn-iot-reboot">Calibrate Mesh</button>
+              <button class="btn btn-outline btn-sm" id="btn-iot-anomaly">⚡ Trigger Anomaly Pulse</button>
+            </div>
+          </div>
+
+          <!-- Waveform Canvas -->
+          <div class="iot-chart-wrapper">
+            <canvas id="iot-chart-canvas" class="iot-canvas"></canvas>
+          </div>
+
+          <!-- Interactive Sensor Node Cards -->
+          <div class="iot-node-grid">
+            <div class="iot-node-card active" data-sensor="temp">
+              <div class="iot-node-title">Thermal Probe 01</div>
+              <div class="iot-node-val text-cyan" id="val-temp">42.4 °C</div>
+              <span class="badge badge-cyan" style="margin-top: 8px;">Active Probe</span>
+            </div>
+
+            <div class="iot-node-card" data-sensor="pressure">
+              <div class="iot-node-title">Hydraulic Transducer</div>
+              <div class="iot-node-val text-violet" id="val-pressure">14.2 bar</div>
+              <span class="badge badge-violet" style="margin-top: 8px;">Select Node</span>
+            </div>
+
+            <div class="iot-node-card" data-sensor="vibration">
+              <div class="iot-node-title">3-Axis Harvester</div>
+              <div class="iot-node-val text-gold" id="val-vibration">128.5 Hz</div>
+              <span class="badge badge-gold" style="margin-top: 8px;">Select Node</span>
+            </div>
+
+            <div class="iot-node-card" data-sensor="rssi">
+              <div class="iot-node-title">LoRa Mesh Quality</div>
+              <div class="iot-node-val" style="color: #34d399;" id="val-rssi">-68 dBm</div>
+              <span class="badge badge-emerald" style="margin-top: 8px;">Select Node</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 6: IMPORT AND EXPORT
+         --------------------------------------------------------------- -->
+    <section id="trade" class="section section-fullscreen" aria-label="Import and Export Business">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow gold"><span class="eyebrow-dot"></span> Capability 04</div>
+          <h2 class="section-title">International Trade, Sourcing &amp; Sovereign Logistics</h2>
+          <p class="section-subtitle">
+            Moving high-value goods across borders requires unyielding rigor. Auraex combines on-the-ground manufacturing audits, automated tariff classification, and multi-modal container logistics to protect your margins.
+          </p>
+        </div>
+
+        <!-- Interactive Global Trade Corridor Explorer -->
+        <div class="trade-card">
+          <!-- Corridor Navigation Tabs -->
+          <div class="trade-corridor-nav">
+            <button class="corridor-btn active" data-corridor="transpacific">Trans-Pacific Tech Corridor</button>
+            <button class="corridor-btn" data-corridor="silkroad">Asia-Europe Maritime Axis</button>
+            <button class="corridor-btn" data-corridor="transatlantic">Trans-Atlantic MedTech Lane</button>
+            <button class="corridor-btn" data-corridor="panamerican">Pan-American Nearshore Intermodal</button>
+          </div>
+
+          <div class="corridor-display">
+            <!-- Left Info Column -->
+            <div class="corridor-info-col">
+              <h3 id="corridor-title" class="text-gold">Trans-Pacific Technology &amp; Hardware Corridor</h3>
+              <p id="corridor-desc" class="text-secondary" style="font-size: 0.95rem; line-height: 1.7;">
+                High-frequency supply lane optimizing electronic components, sensor modules, and IoT PCB assemblies from East Asia manufacturing hubs straight into North American tech hubs with pre-cleared customs documentation.
+              </p>
+
+              <div class="corridor-metrics-strip">
+                <div>
+                  <div class="corridor-metric-sub">Average Transit Time</div>
+                  <div class="corridor-metric-main" id="corridor-transit">11.4 Days (Sea) / 32h (Air)</div>
+                </div>
+                <div>
+                  <div class="corridor-metric-sub">Duty FastTrack Rate</div>
+                  <div class="corridor-metric-main" id="corridor-clearance">99.8% Pre-Cleared</div>
+                </div>
+                <div>
+                  <div class="corridor-metric-sub">Partner Hubs</div>
+                  <div class="corridor-metric-main" id="corridor-hubs">14 Bonded Enclaves</div>
+                </div>
+              </div>
+
+              <div style="font-size: 0.85rem; color: var(--text-muted);">
+                <strong>Primary Cargo Classes:</strong> <span id="corridor-cargo" class="text-primary">Microcontrollers, Sensor Modules, IoT Enclosures</span>
+              </div>
+            </div>
+
+            <!-- Right Interactive Route Visualizer Box -->
+            <div class="corridor-map-col">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <span class="badge badge-gold">Active Corridor Route</span>
+                <span style="font-size: 0.75rem; color: var(--text-subtle); font-family: var(--font-mono);">GPS: ENCRYPTED-LANE</span>
+              </div>
+
+              <!-- Stylized Vector Shipping Corridor -->
+              <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                <!-- Grid coordinates -->
+                <line x1="20" y1="30" x2="300" y2="30" stroke="rgba(255,255,255,0.05)" />
+                <line x1="20" y1="90" x2="300" y2="90" stroke="rgba(255,255,255,0.05)" />
+                <line x1="20" y1="150" x2="300" y2="150" stroke="rgba(255,255,255,0.05)" />
+                
+                <!-- Trade Vector Arc -->
+                <path d="M 40 120 Q 160 30 280 100" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4" />
+                
+                <!-- Origin Node -->
+                <circle cx="40" cy="120" r="7" fill="#f59e0b" />
+                <circle cx="40" cy="120" r="14" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1.5" />
+                
+                <!-- Destination Node -->
+                <circle cx="280" cy="100" r="7" fill="#00f0ff" />
+                <circle cx="280" cy="100" r="14" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5" />
+                
+                <!-- In-transit Vessel -->
+                <circle cx="160" cy="65" r="5" fill="#ffffff">
+                  <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+
+              <div style="display: flex; justify-content: space-between; margin-top: 12px; font-size: 0.8rem;">
+                <div>
+                  <span style="color: var(--text-subtle);">Origin:</span> <br>
+                  <strong id="corridor-origin" class="text-gold">Tokyo &amp; Shenzhen Hubs</strong>
+                </div>
+                <div style="text-align: right;">
+                  <span style="color: var(--text-subtle);">Destination:</span> <br>
+                  <strong id="corridor-dest" class="text-cyan">Long Beach &amp; Silicon Valley</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 7: OUR PROCESS
+         --------------------------------------------------------------- -->
+    <section id="process" class="section section-fullscreen" aria-label="Our Process">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Methodology</div>
+          <h2 class="section-title">The Auraex Lifecycle: From Blueprint to Global Field Ops.</h2>
+          <p class="section-subtitle">
+            A battle-tested 6-stage engineering and logistics framework engineered to de-risk high-stakes projects and accelerate time to market. Click any phase to inspect details.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-step-card active">
+            <div class="step-num-badge">01</div>
+            <h4>Discovery &amp; Feasibility</h4>
+            <p>Bottleneck audit, hardware constraints &amp; regulatory landscape analysis.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-num-badge">02</div>
+            <h4>Architecture &amp; Blueprint</h4>
+            <p>Cloud topologies, PCB schematics, component BOM cost modeling.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-num-badge">03</div>
+            <h4>UI/UX &amp; Enclosure Design</h4>
+            <p>Pixel-perfect web design systems and industrial CAD enclosure models.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-num-badge">04</div>
+            <h4>Agile Engineering</h4>
+            <p>Concurrent cloud backend, mobile apps, and embedded C firmware.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-num-badge">05</div>
+            <h4>QA &amp; Field Compliance</h4>
+            <p>Thermal cycling, RF pre-certification &amp; customs pre-clearing.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-num-badge">06</div>
+            <h4>Deployment &amp; Logistics</h4>
+            <p>Global container freight, multi-region cloud launch &amp; 24/7 SLA.</p>
+          </div>
+        </div>
+
+        <!-- Dynamic Process Detail Card -->
+        <div id="process-detail-card" class="card-glass" style="margin-top: 24px; padding: 28px;">
+          <h3 id="process-detail-title" class="text-cyan" style="margin-bottom: 8px;">01 — Discovery, Strategic Mapping &amp; Feasibility</h3>
+          <p id="process-detail-desc" style="font-size: 0.95rem; margin-bottom: 16px;">
+            We analyze your operational bottlenecks, market opportunity, hardware constraints, and international regulatory landscape before writing a single line of code or sourcing components.
+          </p>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Key Deliverables:</div>
+          <div id="process-detail-deliverables" style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="badge badge-cyan">✓ System Architecture Matrix</span>
+            <span class="badge badge-cyan">✓ Hardware Feasibility Review</span>
+            <span class="badge badge-cyan">✓ Regulatory &amp; Tariffs Roadmap</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 8: FEATURED WORK (SAMPLE CONTENT)
+         --------------------------------------------------------------- -->
+    <section id="work" class="section section-fullscreen" aria-label="Featured Work">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow violet"><span class="eyebrow-dot"></span> Case Studies (Sample Demos)</div>
+          <h2 class="section-title">Selected Cross-Discipline Engagements</h2>
+          <p class="section-subtitle">
+            Real outcomes across digital systems, hardware automation, and trade logistics.
+            <span class="sample-tag">Labeled sample content for demonstration</span>
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="tabs-nav">
+          <button class="tab-btn active work-filter-btn" data-filter="all">All Disciplines</button>
+          <button class="tab-btn work-filter-btn" data-filter="web">Web Platforms</button>
+          <button class="tab-btn work-filter-btn" data-filter="apps">Mobile Apps</button>
+          <button class="tab-btn work-filter-btn" data-filter="iot">IoT &amp; Hardware</button>
+          <button class="tab-btn work-filter-btn" data-filter="trade">Import / Export</button>
+        </div>
+
+        <div class="work-grid">
+          <!-- Card 1 -->
+          <article class="work-card" data-category="iot web">
+            <div class="work-card-media" style="background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.2) 0%, #060912 70%);">
+              <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 8px;">🛰️</div>
+                <span class="badge badge-cyan">IoT Telemetry &amp; Cloud</span>
+              </div>
+            </div>
+            <div class="work-card-body">
+              <div class="work-card-meta">
+                <span class="badge">IoT Sensors</span>
+                <span class="badge">Next.js</span>
+                <span class="badge">MQTT Broker</span>
+                <span class="sample-tag">Sample Case Study</span>
+              </div>
+              <h3 class="work-card-title">AeroPulse Enterprise Telemetry</h3>
+              <p class="work-card-desc">
+                Engineered custom vibration and thermal sensor pods paired with an edge gateway and real-time operations dashboard for predictive aircraft maintenance.
+              </p>
+              <div class="work-card-stats">
+                <div>
+                  <div class="work-stat-val text-cyan">-42% Unplanned Downtime</div>
+                  <span class="text-muted" style="font-size: 0.8rem;">4.2M daily telemetry events</span>
+                </div>
+                <a href="#contact" class="btn btn-outline btn-sm">Inquire Similar →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="work-card" data-category="trade apps">
+            <div class="work-card-media" style="background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.2) 0%, #060912 70%);">
+              <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 8px;">🌐</div>
+                <span class="badge badge-gold">Global Trade &amp; App</span>
+              </div>
+            </div>
+            <div class="work-card-body">
+              <div class="work-card-meta">
+                <span class="badge">Global Sourcing</span>
+                <span class="badge">React Native</span>
+                <span class="badge">USMCA Compliance</span>
+                <span class="sample-tag">Sample Case Study</span>
+              </div>
+              <h3 class="work-card-title">OmniLoom Cross-Border Sourcing</h3>
+              <p class="work-card-desc">
+                Constructed an end-to-end supply chain app connecting industrial raw materials suppliers across Mexico and Asia directly with automated US customs clearance.
+              </p>
+              <div class="work-card-stats">
+                <div>
+                  <div class="work-stat-val text-gold">18 min Avg Clearance</div>
+                  <span class="text-muted" style="font-size: 0.8rem;">$28M annual cargo volume</span>
+                </div>
+                <a href="#contact" class="btn btn-outline btn-sm">Inquire Similar →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="work-card" data-category="web apps">
+            <div class="work-card-media" style="background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2) 0%, #060912 70%);">
+              <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 8px;">💳</div>
+                <span class="badge badge-violet">Web Platform &amp; Mobile</span>
+              </div>
+            </div>
+            <div class="work-card-body">
+              <div class="work-card-meta">
+                <span class="badge">TypeScript</span>
+                <span class="badge">FinTech Engine</span>
+                <span class="badge">Multi-Currency</span>
+                <span class="sample-tag">Sample Case Study</span>
+              </div>
+              <h3 class="work-card-title">Vortex Pay Global Treasury</h3>
+              <p class="work-card-desc">
+                Designed and built a next-generation multi-currency settlement portal enabling frictionless B2B payments across 38 sovereign currency pairs with sub-second clearing.
+              </p>
+              <div class="work-card-stats">
+                <div>
+                  <div class="work-stat-val text-violet">0.02% Transaction Slip</div>
+                  <span class="text-muted" style="font-size: 0.8rem;">100% automated AML screening</span>
+                </div>
+                <a href="#contact" class="btn btn-outline btn-sm">Inquire Similar →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="work-card" data-category="iot trade">
+            <div class="work-card-media" style="background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.2) 0%, #060912 70%);">
+              <div style="text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 8px;">❄️</div>
+                <span class="badge badge-emerald">ColdChain Hardware</span>
+              </div>
+            </div>
+            <div class="work-card-body">
+              <div class="work-card-meta">
+                <span class="badge">ColdChain Mesh</span>
+                <span class="badge">Cellular IoT</span>
+                <span class="badge">Maritime Logistics</span>
+                <span class="sample-tag">Sample Case Study</span>
+              </div>
+              <h3 class="work-card-title">ColdChain Guardian Maritime Mesh</h3>
+              <p class="work-card-desc">
+                Engineered multi-sensor waterproof logging beacons with satellite backhaul for monitoring perishable pharmaceuticals during 20-day ocean transits.
+              </p>
+              <div class="work-card-stats">
+                <div>
+                  <div class="work-stat-val" style="color: #34d399;">Zero Spoilage Incidents</div>
+                  <span class="text-muted" style="font-size: 0.8rem;">1,400+ active reefers tracked</span>
+                </div>
+                <a href="#contact" class="btn btn-outline btn-sm">Inquire Similar →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 9: INDUSTRIES WE SERVE
+         --------------------------------------------------------------- -->
+    <section id="industries" class="section section-fullscreen" aria-label="Industries We Serve">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Domain Versatility</div>
+          <h2 class="section-title">Industries Powered by Auraex</h2>
+          <p class="section-subtitle">
+            Our cross-discipline capability translates directly to specialized sectors where digital precision and physical logistics are inextricably linked.
+          </p>
+        </div>
+
+        <div class="industries-grid">
+          <!-- Industry 1 -->
+          <div class="industry-card">
+            <span class="industry-icon">🏭</span>
+            <h4>Smart Manufacturing &amp; Industry 4.0</h4>
+            <p>Connected factory sensor meshes, PLC data extraction, automated QA optical inspection, and digital twin web dashboards.</p>
+          </div>
+
+          <!-- Industry 2 -->
+          <div class="industry-card">
+            <span class="industry-icon">🚢</span>
+            <h4>Global Logistics &amp; Freight Corridors</h4>
+            <p>Intermodal tracking, container status automation, customs bonded warehouse management, and freight forwarder APIs.</p>
+          </div>
+
+          <!-- Industry 3 -->
+          <div class="industry-card">
+            <span class="industry-icon">🛍️</span>
+            <h4>Next-Gen Retail &amp; Cross-Border eCommerce</h4>
+            <p>Headless shopping platforms, real-time multi-warehouse inventory syncing, cross-currency checkout, and customs pre-calculation.</p>
+          </div>
+
+          <!-- Industry 4 -->
+          <div class="industry-card">
+            <span class="industry-icon">🧬</span>
+            <h4>MedTech &amp; Environmental Diagnostics</h4>
+            <p>ISO 13485-aligned mobile companion apps, BLE medical diagnostic readers, and encrypted cloud compliance records.</p>
+          </div>
+
+          <!-- Industry 5 -->
+          <div class="industry-card">
+            <span class="industry-icon">🚀</span>
+            <h4>High-Growth Tech Startups</h4>
+            <p>Accelerated prototype-to-production sprints bridging software MVP validation with real physical hardware supply chains.</p>
+          </div>
+
+          <!-- Industry 6 -->
+          <div class="industry-card">
+            <span class="industry-icon">⚡</span>
+            <h4>Energy &amp; CleanTech Infrastructure</h4>
+            <p>Smart grid telemetry, battery storage telemetry units, remote substation monitoring, and solar farm analytics portals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 10: WHY AURAEX (DIFFERENTIATORS)
+         --------------------------------------------------------------- -->
+    <section id="why-auraex" class="section section-fullscreen" aria-label="Why Auraex">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow gold"><span class="eyebrow-dot"></span> The Auraex Edge</div>
+          <h2 class="section-title">Why Industry Leaders Choose Auraex</h2>
+          <p class="section-subtitle">
+            Traditional agencies stop at web templates; traditional brokers don't write software. Here is how Auraex redefines end-to-end partner value.
+          </p>
+        </div>
+
+        <!-- Comparison Table / Differentiator Matrix -->
+        <div class="why-comparison-box">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 32%;">Strategic Capability</th>
+                <th style="width: 34%;" class="auraex-col">Auraex Unified Model</th>
+                <th style="width: 34%;">Conventional Fragmented Agencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cross-Discipline Alignment</strong></td>
+                <td class="auraex-col">Web devs, firmware engineers, and customs specialists collaborate under one unified project lead.</td>
+                <td>3 to 5 disconnected vendors blaming each other for integration failures.</td>
+              </tr>
+              <tr>
+                <td><strong>Hardware-to-Cloud Integration</strong></td>
+                <td class="auraex-col">Native telemetry pipelines linking physical microcontrollers directly to high-throughput web portals.</td>
+                <td>Subcontracted to third-party freelancers with zero long-term accountability.</td>
+              </tr>
+              <tr>
+                <td><strong>International Trade Execution</strong></td>
+                <td class="auraex-col">In-house import/export desk handling supplier audits, tariffs, and customs bonded transit.</td>
+                <td>No physical commerce capability; clients must source and freight alone.</td>
+              </tr>
+              <tr>
+                <td><strong>Code Ownership &amp; IP</strong></td>
+                <td class="auraex-col">100% intellectual property transfer on delivery. Zero proprietary lock-in. Clean documentation.</td>
+                <td>Restrictive licensing, monthly maintenance hostage clauses, or bloated templates.</td>
+              </tr>
+              <tr>
+                <td><strong>Security &amp; Compliance</strong></td>
+                <td class="auraex-col">Strict end-to-end encryption from sensor chip level to browser DOM.</td>
+                <td>Basic CMS plugins with recurrent unpatched security vulnerabilities.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 11: TESTIMONIALS (SAMPLE CONTENT)
+         --------------------------------------------------------------- -->
+    <section id="testimonials" class="section section-fullscreen" aria-label="Client Testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Partner Voices (Sample Content)</div>
+          <h2 class="section-title">Endorsements from Systems Leaders</h2>
+          <p class="section-subtitle">
+            What engineering and supply chain executives say about working alongside Auraex.
+            <span class="sample-tag">Clearly labeled sample testimonials for demonstration</span>
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">
+              “Finding a team that could design an intuitive web portal while simultaneously writing C firmware for our proprietary vibration sensors seemed impossible until we engaged Auraex. They shaved 7 months off our production roadmap.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MK</div>
+              <div class="author-meta">
+                <h5>Marcus Koenig</h5>
+                <span>VP Engineering, AeroPulse Systems <span class="sample-tag">Sample</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">
+              “Auraex's trade desk navigated complex customs tariffs between Shenzhen and Long Beach while their software engineers built our real-time inventory dashboard. They are truly in a category of one.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="border-color: var(--border-violet); color: var(--violet-primary);">SL</div>
+              <div class="author-meta">
+                <h5>Dr. Sophia Lin</h5>
+                <span>Founder &amp; COO, OmniLoom Supply <span class="sample-tag">Sample</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <p class="testimonial-quote">
+              “Their attention to visual distinction, sub-second latency, and rigorous form validation gave our FinTech platform immediate institutional credibility. We closed our Series A within 60 days of launch.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="border-color: var(--border-medium); color: var(--gold-primary);">TH</div>
+              <div class="author-meta">
+                <h5>Tariq Al-Hassan</h5>
+                <span>Chief Technology Officer, Vortex Pay <span class="sample-tag">Sample</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 12: FAQ
+         --------------------------------------------------------------- -->
+    <section id="faq" class="section section-fullscreen" aria-label="Frequently Asked Questions">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow violet"><span class="eyebrow-dot"></span> Clarity &amp; Collaboration</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Direct answers on engagements, cross-discipline execution, pricing structures, and intellectual property.
+          </p>
+
+          <!-- Search Filter Box -->
+          <div style="width: 100%; max-width: 500px; margin-top: 24px;">
+            <input type="text" id="faq-search-input" class="form-input" placeholder="🔍 Search questions (e.g. 'IoT', 'tariffs', 'pricing')..." aria-label="Search FAQ" />
+          </div>
+        </div>
+
+        <div class="faq-container">
+          <div class="accordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item active">
+              <button class="accordion-header" aria-expanded="true">
+                <span>Can we hire Auraex for only web development or only IoT?</span>
+                <span class="accordion-icon">↓</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  Yes, absolutely. While our primary competitive advantage is unifying digital development with physical trade and IoT, over 40% of our clients begin with a dedicated focus—such as a modern headless web flagship or a standalone mobile application. You can engage us for a single discipline and expand as your operational needs evolve.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span>How does Auraex combine digital development with physical trade and IoT?</span>
+                <span class="accordion-icon">↓</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  We operate cross-functional project pods consisting of software architects, embedded hardware engineers, and international logistics coordinators. This prevents the traditional finger-pointing where software teams blame sensor hardware, or hardware manufacturers blame customs delays. One accountable lead orchestrates your entire lifecycle.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span>What is the typical project timeline and discovery engagement?</span>
+                <span class="accordion-icon">↓</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  A typical engagement begins with a 2-week Discovery &amp; Blueprinting sprint. Production timelines range from 4 to 8 weeks for bespoke web platforms, 8 to 14 weeks for complex mobile applications, and 12 to 20 weeks for custom IoT hardware and bonded trade lane setups.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span>Who owns the code, hardware schematics, and intellectual property?</span>
+                <span class="accordion-icon">↓</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  You do. Upon milestone completion, 100% of all intellectual property, source repositories, CAD models, PCB layout files, firmware code, and customs documentation transfer unconditionally to your organization.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span>How can we connect our existing ERP or enterprise hardware to Auraex?</span>
+                <span class="accordion-icon">↓</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  We build open, documented REST, GraphQL, and MQTT interfaces that seamlessly integrate into existing enterprise systems such as SAP, Oracle NetSuite, Salesforce, and AWS IoT Core.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 13: CONTACT & INQUIRY
+         --------------------------------------------------------------- -->
+    <section id="contact" class="section section-fullscreen" aria-label="Contact Auraex">
+      <div class="container">
+        <div class="section-header text-left">
+          <div class="eyebrow gold"><span class="eyebrow-dot"></span> Direct Engagement</div>
+          <h2 class="section-title">Initiate a Strategic Technical Consultation</h2>
+          <p class="section-subtitle">
+            Tell us about your technical roadmap, hardware constraints, or international trade objectives. An Auraex principal engineer will respond within 24 hours.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Contact Channels & Placeholders -->
+          <div class="contact-info-col">
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Global Innovation Hubs</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                  <strong>Tokyo:</strong> Roppongi Hills Mori Tower, Minato-ku<br>
+                  <strong>San Francisco:</strong> 555 California St, Financial District<br>
+                  <strong>London:</strong> 25 Old Broad Street, City of London<br>
+                  <span class="sample-tag">Placeholder Corporate Locations</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div>
+                <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Direct Communication</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">
+                  Technical Inquiries: <a href="mailto:inquiries@auraex-demo.com" class="text-cyan">inquiries@auraex-demo.com</a><br>
+                  Trade Desk: <a href="mailto:trade@auraex-demo.com" class="text-gold">trade@auraex-demo.com</a><br>
+                  Phone: <span class="text-primary">+1 (555) 019-8472</span><br>
+                  <span class="sample-tag">Placeholder Contacts for Demonstration</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">🛡️</div>
+              <div>
+                <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Mutual Confidentiality</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">
+                  All inquiries are protected under our mutual bilateral NDA by default. Your IP and proprietary schematics remain confidential from moment zero.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div class="contact-form-card">
+            <form id="contact-form" novalidate>
+              <!-- Services Selection Grid -->
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label class="form-label">Areas of Strategic Interest (Select all that apply)</label>
+                <div class="service-selector-grid">
+                  <label class="service-chip">
+                    <input type="checkbox" name="services" value="web" checked />
+                    <span>Web Creation &amp; Platform</span>
+                  </label>
+                  <label class="service-chip">
+                    <input type="checkbox" name="services" value="apps" />
+                    <span>Mobile App Creation</span>
+                  </label>
+                  <label class="service-chip">
+                    <input type="checkbox" name="services" value="iot" />
+                    <span>IoT Solutions &amp; Telemetry</span>
+                  </label>
+                  <label class="service-chip">
+                    <input type="checkbox" name="services" value="trade" />
+                    <span>Import / Export &amp; Trade</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Two Column Fields -->
+              <div class="grid-2" style="gap: 16px; margin-bottom: 16px;">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Your Full Name *</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Sarah Jenkins" required />
+                  <span class="form-error-msg"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Work Email *</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="s.jenkins@enterprise.com" required />
+                  <span class="form-error-msg"></span>
+                </div>
+              </div>
+
+              <div class="grid-2" style="gap: 16px; margin-bottom: 16px;">
+                <div class="form-group">
+                  <label class="form-label" for="contact-org">Organization / Enterprise</label>
+                  <input type="text" id="contact-org" class="form-input" placeholder="e.g. Apex Global Logistics" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-budget">Estimated Budget Bracket</label>
+                  <select id="contact-budget" class="form-select">
+                    <option value="25-50k">$25,000 – $50,000</option>
+                    <option value="50-100k" selected>$50,000 – $100,000</option>
+                    <option value="100-250k">$100,000 – $250,000</option>
+                    <option value="250k+">$250,000+ (Enterprise Multi-Discipline)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 24px;">
+                <label class="form-label" for="contact-message">Project Scope &amp; Objectives *</label>
+                <textarea id="contact-message" class="form-textarea" rows="4" placeholder="Briefly describe what you are looking to build, hardware constraints, or trade corridors you wish to establish..." required></textarea>
+                <span class="form-error-msg"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" id="contact-submit-btn" style="width: 100%;">
+                Submit Technical Inquiry →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------------------------------
+         SECTION 14: FOOTER
+         --------------------------------------------------------------- -->
+    <footer class="site-footer" aria-label="Site Footer">
+      <div class="container">
+        <div class="footer-top">
+          <!-- Col 1: Brand -->
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <span class="brand-name">Auraex</span>
+            </div>
+            <p>
+              A high-precision engineering and international commerce enterprise unifying software craftsmanship, edge IoT hardware, and sovereign cross-border trade.
+            </p>
+            <div class="system-status-indicator">
+              <span class="account-dot"></span> All Subsystems Operational
+            </div>
+          </div>
+
+          <!-- Col 2: Services -->
+          <div>
+            <h4 class="footer-col-title">Capabilities</h4>
+            <div class="footer-links">
+              <a href="#web">Web Creation</a>
+              <a href="#apps">Mobile Applications</a>
+              <a href="#iot">IoT Telemetry</a>
+              <a href="#trade">Import &amp; Export</a>
+              <a href="#process">Engineering Process</a>
+            </div>
+          </div>
+
+          <!-- Col 3: Company -->
+          <div>
+            <h4 class="footer-col-title">Company</h4>
+            <div class="footer-links">
+              <a href="#about">About Auraex</a>
+              <a href="#work">Case Studies</a>
+              <a href="#why-auraex">Why Auraex</a>
+              <a href="#industries">Industries</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+
+          <!-- Col 4: Hubs & Legal -->
+          <div>
+            <h4 class="footer-col-title">Global Hubs</h4>
+            <div class="footer-links">
+              <span style="color: var(--text-muted); font-size: 0.85rem;">Tokyo Lab: Minato-ku</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem;">San Francisco: 555 California</span>
+              <span style="color: var(--text-muted); font-size: 0.85rem;">London: City of London</span>
+              <a href="#auth" style="margin-top: 8px; color: var(--cyan-primary);">Access Sign-In Portal</a>
+            </div>
+          </div>
+
+          <!-- Col 5: Newsletter -->
+          <div>
+            <h4 class="footer-col-title">Systems Dispatch</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+              Quarterly intelligence on edge IoT architectures, trade tariffs, and high-performance digital platforms.
+            </p>
+            <form id="newsletter-form" style="display: flex; gap: 8px;">
+              <input type="email" id="newsletter-email" class="form-input" placeholder="name@company.com" style="padding: 10px 14px; font-size: 0.85rem;" required />
+              <button type="submit" class="btn btn-primary btn-sm">Join</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+          <div>
+            © 2026 Auraex Technologies &amp; Global Trade. All rights reserved. •
+            <span class="sample-tag">Demonstration Website</span>
+          </div>
+
+          <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="#hero" class="text-muted" id="back-to-top">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Toast Notification Container Root -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Main ES Module Script -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
