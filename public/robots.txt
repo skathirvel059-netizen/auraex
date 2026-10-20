@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://auraex.com/sitemap.xml
+Sitemap: https://auraex-beta.vercel.app/sitemap.xml
