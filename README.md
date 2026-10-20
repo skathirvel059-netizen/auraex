@@ -117,10 +117,88 @@ export const AUTH_CONFIG = {
 
 ---
 
+## ⚡ Supabase & PostgreSQL Integration
+
+The application includes direct integration with Supabase for PostgreSQL database, User Authentication (Email/Password & Google OAuth), and Row-Level Security (RLS).
+
+### Configuration Options:
+1. **Via UI**: Click **"Continue with Google"** -> expand **"Connect Supabase"** -> paste your **Project URL** and **Anon Public Key**.
+2. **Via `.env`**:
+   ```env
+   VITE_SUPABASE_URL=https://your-project.supabase.co
+   VITE_SUPABASE_ANON_KEY=your-anon-public-key
+   ```
+3. **In Supabase Dashboard**:
+   - Go to **Authentication > URL Configuration**:
+     - **Site URL**: `https://auraex.com` (and `http://localhost:5173` for local dev)
+     - **Redirect URLs**:
+       - `https://auraex.com/**`
+       - `http://localhost:5173/**`
+   - Go to **Authentication > Providers > Google**:
+     - Enable Google provider.
+     - Add your Google Client ID: `828133622960-vto4lijj72t4sl9eip77rh5er2b5cj27.apps.googleusercontent.com`
+     - Add your Google Client Secret from Google Cloud Console.
+
+---
+
+## 🚀 Push Code to GitHub
+
+A dedicated Git repository is initialized on the `main` branch:
+
+1. Create a new repository on [GitHub](https://github.com/new) named `auraex-website` (or `auraex`).
+2. Run the following commands in terminal:
+   ```bash
+   git remote add origin https://github.com/skathirvel059-netizen/auraex-website.git
+   git push -u origin main
+   ```
+*(Replace `skathirvel059-netizen/auraex-website` with your preferred repo path).*
+
+---
+
+## 🌐 Deploy to Vercel with Custom Domain (`auraex.com`)
+
+### Method 1: Via Vercel Dashboard (Recommended)
+1. Go to [vercel.com/new](https://vercel.com/new).
+2. Import your GitHub repository (`auraex-website`).
+3. Set **Framework Preset**: `Vite` (automatically detected).
+4. In **Environment Variables**, add:
+   - `VITE_GOOGLE_CLIENT_ID`: `828133622960-vto4lijj72t4sl9eip77rh5er2b5cj27.apps.googleusercontent.com`
+   - `VITE_SUPABASE_URL`: `https://your-project.supabase.co`
+   - `VITE_SUPABASE_ANON_KEY`: `your-supabase-anon-key`
+   - `VITE_SITE_URL`: `https://auraex.com`
+5. Click **Deploy**.
+
+### Method 2: Via Vercel CLI
+```bash
+npx vercel
+npx vercel --prod
+```
+
+### Linking the Custom Domain (`auraex.com`)
+1. In your Vercel Project Settings, navigate to **Domains**.
+2. Add `auraex.com` and `www.auraex.com`.
+3. Configure your DNS provider (where `auraex.com` was purchased, e.g. Namecheap, GoDaddy, Cloudflare):
+   - **A Record**:
+     - Host: `@`
+     - Value: `76.76.21.21`
+   - **CNAME Record**:
+     - Host: `www`
+     - Value: `cname.vercel-dns.com`
+4. Once DNS propagates, Vercel automatically provisions a free SSL/TLS certificate.
+5. In **Google Cloud Console** > **Credentials** > OAuth 2.0 Client ID:
+   - Add `https://auraex.com` to **Authorized JavaScript origins**.
+   - Add `https://auraex.com` and your Supabase callback URL to **Authorized redirect URIs**.
+
+---
+
 ## 📂 Project Architecture
 
 ```
 company/
+├── .env.example             # Template for production environment variables
+├── .env                     # Local environment variables
+├── vercel.json              # Vercel SPA routing and security headers
+├── .gitignore               # Ignored files (node_modules, dist)
 ├── index.html               # Main semantic HTML structure & meta tags
 ├── package.json             # Vite dev dependencies and run scripts
 ├── README.md                # Comprehensive documentation & setup guide
@@ -135,6 +213,7 @@ company/
     ├── main.js              # Application coordinator & scroll-spy controller
     ├── auth-config.js       # Google OAuth & backend provider configurations
     ├── auth.js              # First-screen sign-in, signup, and session controller
+    ├── supabase-client.js   # Supabase client singleton & auth integration
     ├── toast.js             # Notification toast utility
     ├── canvas-hero.js       # Interactive constellation & data-flow canvas
     ├── iot-simulator.js     # Real-time IoT waveform chart & telemetry widget
@@ -159,3 +238,4 @@ company/
   - Body & UI: `Plus Jakarta Sans` (Clean, high-precision readability).
   - Monospace Data: `JetBrains Mono` (Telemetry values, code snippets, coordinates).
 - **Aesthetic Direction**: High-contrast dark mode, subtle glassmorphism, micro-animations, and dynamic canvas particle networks.
+
