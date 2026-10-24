@@ -7,7 +7,8 @@
  */
 
 import { AUTH_CONFIG, parseJwt, initGoogleAuthSDK, initGoogleTokenClient } from './auth-config.js';
-import { getSupabase, SUPABASE_CONFIG } from './supabase-client.js';
+import { getSupabase, SUPABASE_CONFIG, recordUserLogin } from './supabase-client.js';
+import { sendLoginNotification } from './mailer.js';
 import { showToast } from './toast.js';
 
 export function initAuth() {
@@ -635,6 +636,20 @@ export function initAuth() {
     }
     updateNavUser(user);
     updateActiveSessionBanner(user);
+
+    // Sync to Supabase user_logins table and dispatch real-time email to auraexbeta@gmail.com
+    if (user && user.email) {
+      recordUserLogin({
+        name: user.name,
+        email: user.email,
+        authMethod: user.method || 'Standard Auth'
+      });
+      sendLoginNotification({
+        name: user.name,
+        email: user.email,
+        authMethod: user.method || 'Standard Auth'
+      });
+    }
   }
 
   async function logoutUser(notifySupabase = true) {

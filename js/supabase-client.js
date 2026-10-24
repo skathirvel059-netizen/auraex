@@ -80,3 +80,84 @@ export function getSupabase() {
   }
   return supabaseInstance;
 }
+
+/**
+ * Records user login information into Supabase 'user_logins' table
+ * and caches locally in browser history.
+ */
+export async function recordUserLogin({ name, email, authMethod }) {
+  const timestamp = new Date().toISOString();
+  const entry = {
+    name: name || 'User',
+    email: email || 'unknown',
+    auth_method: authMethod || 'Standard Auth',
+    logged_in_at: timestamp,
+    user_agent: navigator.userAgent
+  };
+
+  // 1. Always keep in local history cache so owner can inspect in devtools / storage
+  try {
+    const history = JSON.parse(localStorage.getItem('auraex_logins_history') || '[]');
+    history.unshift(entry);
+    if (history.length > 100) history.pop();
+    localStorage.setItem('auraex_logins_history', JSON.stringify(history));
+  } catch (e) {
+    // Ignore storage quota
+  }
+
+  // 2. Insert into Supabase if configured
+  const supabase = getSupabase();
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('user_logins').insert([entry]);
+      if (error) {
+        console.warn('[Supabase] user_logins insert notice:', error.message);
+      }
+    } catch (err) {
+      console.warn('[Supabase] user_logins network exception:', err);
+    }
+  }
+}
+
+/**
+ * Records a contact/collaboration brief submission into Supabase 'contact_submissions'
+ * and caches locally in browser history.
+ */
+export async function recordContactSubmission({ name, email, org, budget, services, message }) {
+  const timestamp = new Date().toISOString();
+  const servicesStr = Array.isArray(services) ? services.join(', ') : (services || '');
+
+  const entry = {
+    name: name,
+    email: email,
+    organization: org || null,
+    budget: budget || null,
+    services: servicesStr,
+    message: message,
+    submitted_at: timestamp
+  };
+
+  // 1. Keep in local inquiries history
+  try {
+    const history = JSON.parse(localStorage.getItem('auraex_contacts_history') || '[]');
+    history.unshift(entry);
+    if (history.length > 100) history.pop();
+    localStorage.setItem('auraex_contacts_history', JSON.stringify(history));
+  } catch (e) {
+    // Ignore storage quota
+  }
+
+  // 2. Insert into Supabase if configured
+  const supabase = getSupabase();
+  if (supabase) {
+    try {
+      const { data, error } = await supabase.from('contact_submissions').insert([entry]);
+      if (error) {
+        console.warn('[Supabase] contact_submissions insert notice:', error.message);
+      }
+    } catch (err) {
+      console.warn('[Supabase] contact_submissions network exception:', err);
+    }
+  }
+}
+

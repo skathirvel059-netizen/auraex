@@ -3,6 +3,8 @@
  */
 
 import { showToast } from './toast.js';
+import { recordContactSubmission } from './supabase-client.js';
+import { sendContactNotification } from './mailer.js';
 
 export function initContact() {
   const contactForm = document.getElementById('contact-form');
@@ -10,13 +12,14 @@ export function initContact() {
 
   const submitBtn = document.getElementById('contact-submit-btn');
 
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const nameInput = document.getElementById('contact-name');
     const emailInput = document.getElementById('contact-email');
     const messageInput = document.getElementById('contact-message');
     const orgInput = document.getElementById('contact-org');
+    const budgetInput = document.getElementById('contact-budget');
 
     let isValid = true;
 
@@ -53,22 +56,45 @@ export function initContact() {
 
     if (!isValid) return;
 
-    // Simulate sending
+    // UI Feedback: transmitting
     const originalText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Transmitting Brief...';
+    submitBtn.textContent = 'Transmitting Brief & Syncing...';
 
-    setTimeout(() => {
+    const selectedServiceNames = Array.from(checkedServices).map(cb => {
+      return cb.closest('.service-chip')?.querySelector('span')?.textContent.trim() || cb.value;
+    });
+
+    const inquiryData = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      org: orgInput?.value.trim() || '',
+      budget: budgetInput ? budgetInput.options[budgetInput.selectedIndex]?.text : '',
+      services: selectedServiceNames,
+      message: messageInput.value.trim()
+    };
+
+    try {
+      // 1. Sync to Supabase table & local history
+      await recordContactSubmission(inquiryData);
+
+      // 2. Dispatch real-time email to auraexbeta@gmail.com
+      await sendContactNotification(inquiryData);
+
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
       contactForm.reset();
 
       showToast(
-        'Brief Received',
-        `Thank you ${nameInput.value.split(' ')[0]}! An Auraex engineering lead will review your requirements within 24 hours.`,
+        'Brief Transmitted & Recorded',
+        `Thank you ${inquiryData.name.split(' ')[0]}! Your requirements were recorded in systems and dispatched to auraexbeta@gmail.com.`,
         'success'
       );
-    }, 900);
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      showToast('Notice', 'Inquiry recorded locally. An Auraex engineer will review your brief shortly.', 'info');
+    }
   });
 
   function showError(inputEl, msg) {

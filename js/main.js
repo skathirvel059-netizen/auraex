@@ -13,6 +13,8 @@ import { initProcessAndWork } from './process-work.js';
 import { initFAQ } from './faq.js';
 import { initContact } from './contact.js';
 import { showToast } from './toast.js';
+import { recordContactSubmission } from './supabase-client.js';
+import { sendContactNotification } from './mailer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Core Subsystems
@@ -101,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Newsletter Subscription Form
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+    newsletterForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const emailInput = document.getElementById('newsletter-email');
       const email = emailInput?.value.trim();
@@ -110,6 +112,18 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast('Invalid Email', 'Please enter a valid email address.', 'warning');
         return;
       }
+
+      const newsletterData = {
+        name: 'Newsletter Subscriber',
+        email: email,
+        org: 'Newsletter Reader',
+        budget: 'N/A',
+        services: 'Systems Dispatch Newsletter',
+        message: 'Subscribed to Auraex Systems Dispatch quarterly intelligence'
+      };
+
+      recordContactSubmission(newsletterData);
+      sendContactNotification(newsletterData);
 
       showToast('Subscribed', 'Thank you for subscribing to Auraex Global Systems Dispatch.', 'success');
       newsletterForm.reset();
