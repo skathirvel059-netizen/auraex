@@ -8,12 +8,13 @@
 import { createClient } from '@supabase/supabase-js';
 
 export const SUPABASE_CONFIG = {
-  // Reads from Vite environment variables or localStorage overrides
+  // Reads from Vite/Next environment variables, localStorage overrides, or project defaults
   get url() {
     return (
       import.meta.env.VITE_SUPABASE_URL ||
+      import.meta.env.NEXT_PUBLIC_SUPABASE_URL ||
       localStorage.getItem('auraex_supabase_url') ||
-      ''
+      'https://ltziczggfwqbeodfxpwx.supabase.co'
     );
   },
   set url(val) {
@@ -28,8 +29,10 @@ export const SUPABASE_CONFIG = {
   get anonKey() {
     return (
       import.meta.env.VITE_SUPABASE_ANON_KEY ||
+      import.meta.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+      import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
       localStorage.getItem('auraex_supabase_anon_key') ||
-      ''
+      'sb_publishable_zS4lcu7YU-_rkL2GHt2a1Q_IREjY-GL'
     );
   },
   set anonKey(val) {
